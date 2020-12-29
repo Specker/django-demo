@@ -1,0 +1,76 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+<div>
+    <!-- Sensrors info OSD --> 
+        <div class="osd" style="left: 0; border-radius: 0 0 10px 0;">
+            <button class="btn table_btn" style="width:300px;color:black;" type="button" data-toggle="collapse" data-target="#sensorCollapse" aria-expanded="false" aria-controls="sensorCollapse"><b>Sensors Info</b></button>
+            <div class="collapse" id="sensorCollapse">
+                <div class="card card-body" style="background-color: #b9b9b900; border: 0; height: 100%;">
+                    Temperature: <br>
+                    Humidity: <br>
+                    Pressure: <br>
+                    <br>
+                    Light: <br>
+                    <br>
+                    Wall: 
+                </div>
+            </div>
+        </div>
+    <!-- Settings -->  
+        <div class="osd" style="right: 0; border-radius: 0 0 0 10px;">
+            <button class="btn table_btn" style="color:black;" type="button" data-toggle="modal" data-target="#exampleModalCenter"><fa-icon [icon]="faCogs"></fa-icon></button>
+        </div>
+    
+    <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Settings</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="color: #ffffff">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Camera URL:<input id="webcamURL">
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Car info OSD --> 
+        <div class="osd" style="left: 0; bottom: 0; text-align: left; border-radius: 0 10px 0 0 ; ">
+            <div class="collapse" id="carCollapse">
+                <div class="card card-body" style="background-color: #b9b9b900; border: 0; height: 100%;">
+                    Driver: <br>
+                    <br>
+                    
+                    Speed: <br>
+    
+                    lights: <br>
+                </div>
+            </div>
+            <button class="btn table_btn" style="width:300px;color:black;" type="button" data-toggle="collapse" data-target="#carCollapse" aria-expanded="false" aria-controls="carCollapse"><b>Car Info</b></button>
+        </div>
+    <!-- Parking Info OSD --> 
+        <div class="osd" style="right: 0; bottom: 0; text-align: right; border-radius: 10px 0 0 0 ;">
+            <div class="collapse" id="parkingCollapse">
+                <div class="card card-body" style="background-color: #b9b9b900; border: 0; height: 100%;">
+                  Parking 1 [distance]m [slots] free<br>
+                  Parking 2 [distance]m [slots] free
+                </div>
+            </div>
+            <button class="btn table_btn" style="width:300px;color:black;" type="button" data-toggle="collapse" data-target="#parkingCollapse" aria-expanded="false" aria-controls="parkingCollapse"><b>[number] Parkings Nearby</b></button>
+        </div>
+        <img id="sidewebcam"  src="{{Car_object.cam_url}}" style="transform: scale(1, 1) rotate(0deg);width:100%;max-width:100vw;max-height: 100vh;height: 100;opacity: 1;">
+    </div>
+
+    <script>
+        $(window).unload(function () {
+            
+        });
+    </script>
+{% endblock %}

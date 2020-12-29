@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<div class="card card-body tablecard" style=" border: 0; width: 100%">
+    <table style="width:100%">
+        <tr style="text-align:center; margin:5px;width: 100%;">
+            <th style="padding:5px">#</th>
+            <th style="padding:5px">Name</th>
+            <th style="padding:5px">Model</th>
+            <th style="padding:5px">Plates</th>
+            <th style="padding:5px">Status</th>
+            <th style="padding:5px">Driver</th>
+            <th style="padding:5px">  </th>
+        </tr>
+        {% for car in Car_objects%}
+        <tr>
+            <td>{{car.id}}</td>
+            <td>{{car.car_Name}}</td>
+            <td>{{car.car_Model}}</td>
+            <td>{{car.car_licence_Plate}}</td>
+            <td>{{car.status}}</td>
+            <td>{{car.driver.first_name}} {{car.driver.last_name}}</td>
+            <td>
+                {% if car.status == 1 %} 
+                <a class="btn login_btn" style="color:black;" type="button" href="/Car/Drive/{{car.id}}">Drive</a>
+                {% else %}
+                <button class="btn login_btn" style="color:black;" type="button" disabled>Drive</button>
+                {% endif %}
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+
+
+{% endblock %}
